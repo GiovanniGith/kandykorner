@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 
 export const ProductTypeList = () => {
     const [productType, setproductType] = useState([])
-  //  const [totalCustomerMessage, updateMessage] = useState("") 
 
     useEffect(
         () => {
@@ -15,21 +14,8 @@ export const ProductTypeList = () => {
         []
     )
 
-    // useEffect(
-    //     () => {
-    //         if (productType.length === 1){
-    //             updateMessage("You have 1 customer")
-    //         }
-    //         else {
-    //             updateMessage(`You have ${productType.length} productType`)
-    //         }
-    //     },
-    //     [productType]
-    // )
-
     return (
         <>
-            {/* <div>{totalCustomerMessage}</div> */}
             {
                 productType.map(
                     (prodTypeList) => {

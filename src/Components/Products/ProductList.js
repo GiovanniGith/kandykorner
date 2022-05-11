@@ -19,7 +19,7 @@ export const ProductList = () => {
             {
                 products.map(
                     (prodList) => {
-                        return <p key={`productList--${prodList.id}`}>{prodList.name} ${prodList.price} {prodList.productType.type}</p>
+                        return <p key={`productList--${prodList.id}`}> ${prodList.price} {prodList.name} </p>
                     }
                 )
             }

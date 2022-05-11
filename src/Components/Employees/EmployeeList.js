@@ -1,42 +1,30 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export const EmployeeList = () => {
-    const [employees, setemployees] = useState([])
-  //  const [totalCustomerMessage, updateMessage] = useState("") 
+  const [employees, setEmployees] = useState([]);
+  const history = useHistory();
 
-    useEffect(
-        () => {
-            fetch("http://localhost:8088/employees")
-                .then(res => res.json())
-                .then((data) => {
-                    setemployees(data)
-                })
-        },
-        []
-    )
+  useEffect(() => {
+    fetch("http://localhost:8088/employees")
+      .then((res) => res.json())
+      .then((data) => {
+        setEmployees(data);
+      });
+  }, []);
 
-    // useEffect(
-    //     () => {
-    //         if (employees.length === 1){
-    //             updateMessage("You have 1 customer")
-    //         }
-    //         else {
-    //             updateMessage(`You have ${employees.length} employees`)
-    //         }
-    //     },
-    //     [employees]
-    // )
-
-    return (
-        <>
-            {/* <div>{totalCustomerMessage}</div> */}
-            {
-                employees.map(
-                    (empList) => {
-                        return <p key={`employee--${empList.id}`}>{empList.name}</p>
-                    }
-                )
-            }
-        </>
-    )
-}
+  return (
+    <>
+      <div>
+        {employees.map((employee) => {
+          return <p key={`employee--${employee.id}`}>{employee.name}</p>;
+        })}
+      </div>
+      <div>
+        <button onChange={() => history.push("/employees/create")}>
+          Join The Company
+        </button>
+      </div>
+    </>
+  );
+};

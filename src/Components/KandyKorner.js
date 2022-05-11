@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { EmployeeList } from "./Employees/EmployeeList";
-import { LocationList } from "./Locations/LocationList";
-import { ProductList } from "./Products/ProductList";
-
-
+import React from "react";
+import { Route } from "react-router-dom";
+import { NavBar } from "./Nav/NavBar";
+import { ApplicationViews } from "./ApplicationViews";
 
 export const KandyKorner = () => {
-    return (
-        <>
-                    <h1> Kandy Korner </h1>
-                    
-                    <h2>Locations</h2>
-                    <LocationList/>
-
-
-                    <h2>Kandy Offered</h2>
-                    <ProductList/>
-
-                    <h2>Employees</h2>
-                    <EmployeeList/>
-      </>
+  return (
+    <>
+      <NavBar />
+      <ApplicationViews />
+    </>
   );
 };
